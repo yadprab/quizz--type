@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import { Main } from "./Components/Main";
+import { QuizSection } from "./Components/QuizSection";
+import { IState } from "./Interfaces/interfac";
+import "./Styles/Styles.css";
 function App() {
+  const [state, setState] = useState<IState["state"]>({ selected: false });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main--wrapper">
+      {!state.selected ? (
+        <Main setState={setState} />
+      ) : (
+        <QuizSection setState={setState} />
+      )}
     </div>
   );
 }
