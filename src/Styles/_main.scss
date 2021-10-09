@@ -96,6 +96,12 @@ main {
 
                     }
 
+                    .btn:not(.fail):not(.success) {
+                        .icons--section {
+                            display: none;
+                        }
+                    }
+
                     .selected {
                         background-color: var(--selected);
                         border: unset;
@@ -118,9 +124,10 @@ main {
                             #correct--icon {
                                 display: none;
                             }
-                              #wrong--icon {
-                                  display: block;
-                              }
+
+                            #wrong--icon {
+                                display: block;
+                            }
                         }
                     }
 
@@ -139,9 +146,10 @@ main {
                             #wrong--icon {
                                 display: none;
                             }
-                              #correct--icon {
-                                  display: block;
-                              }
+
+                            #correct--icon {
+                                display: block;
+                            }
 
 
                         }

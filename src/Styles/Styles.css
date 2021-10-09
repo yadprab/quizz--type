@@ -281,6 +281,10 @@ main .quiz--position .options ul li button:disabled {
   border-color: var(--disabled);
 }
 
+main .quiz--position .options ul li .btn:not(.fail):not(.success) .icons--section {
+  display: none;
+}
+
 main .quiz--position .options ul li .selected {
   background-color: var(--selected);
   border: unset;

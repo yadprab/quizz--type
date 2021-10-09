@@ -29,6 +29,7 @@ const initialState: IInitial["state"] = {
 
 const reducer = (state: IInitial["state"], action: ACTIONTYPES) => {
   const copy = [...initialState.data];
+  console.log(state);
 
   const opt = state.data[state.value.count].options.map((op) => {
     if (op.id === action.payload?.oId) {
@@ -102,6 +103,7 @@ const reducer = (state: IInitial["state"], action: ACTIONTYPES) => {
         isSubmit: false,
         isCorrect: false,
         isWrong: false,
+        data: copy,
 
         result: "",
         value: {
@@ -171,15 +173,21 @@ const QuizSection = ({ setState }: { setState: ISetstate["setState"] }) => {
                               ? "notSelected"
                               : ""
                           } ${
-                            d.isCorrectAns && state.isSubmit
+                            d.isCorrectAns && state.isSubmit && d.valueSelected
                               ? "success"
-                              : !d.isCorrectAns && state.isSubmit
+                              : !d.isCorrectAns &&
+                                state.isSubmit &&
+                                d.valueSelected
                               ? "fail"
+                              : d.isCorrectAns &&
+                                state.isSubmit &&
+                                !d.valueSelected
+                              ? "success"
                               : ""
                           }`}
                           disabled={
                             (d.valueNotSelected && state.isSelected) ||
-                            (state.isSubmit)
+                            state.isSubmit
                           }
                           id={d.id}
                         >
