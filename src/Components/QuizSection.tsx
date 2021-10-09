@@ -29,7 +29,6 @@ const initialState: IInitial["state"] = {
 
 const reducer = (state: IInitial["state"], action: ACTIONTYPES) => {
   const copy = [...initialState.data];
-  console.log(state);
 
   const opt = state.data[state.value.count].options.map((op) => {
     if (op.id === action.payload?.oId) {

@@ -1,4 +1,4 @@
-import React from "react";
+
 import Img from "../images/negative.png";
 
 function Failure() {
