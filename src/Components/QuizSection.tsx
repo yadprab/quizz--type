@@ -177,7 +177,10 @@ const QuizSection = ({ setState }: { setState: ISetstate["setState"] }) => {
                               ? "fail"
                               : ""
                           }`}
-                          disabled={d.valueNotSelected}
+                          disabled={
+                            (d.valueNotSelected && state.isSelected) ||
+                            (state.isSubmit)
+                          }
                           id={d.id}
                         >
                           {d.value}
